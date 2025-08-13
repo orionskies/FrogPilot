@@ -5,6 +5,14 @@ Ecu = car.CarParams.Ecu
 
 FW_VERSIONS = {
   CAR.MAZDA_CX5_2022: {
+    # Add additional 2022 EPS FW strings here if your rack reports a different rev
+    # NOTE: If your swapped EPS reports a different firmware revision, add its exact padded bytestring here.
+    # To capture it:
+    # 1. Run FrogPilot/OpenPilot with the swapped rack installed.
+    # 2. Retrieve carParams from a drive log (via Cabana or tools).
+    # 3. In carParams.carFw, find the EPS entry and copy the fwVersion bytes exactly (including \x00 padding).
+    # 4. Append that bytestring to this list so firmware fingerprinting will detect it as a 2022 EPS.
+
     (Ecu.eps, 0x730, None): [
       b'KSD5-3210X-C-00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
@@ -43,6 +51,7 @@ FW_VERSIONS = {
       b'SH51-21PS1-C\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
   },
+
   CAR.MAZDA_CX5: {
     (Ecu.eps, 0x730, None): [
       b'K319-3210X-A-00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
@@ -112,6 +121,7 @@ FW_VERSIONS = {
       b'SH9T-21PS1-D\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
   },
+
   CAR.MAZDA_CX9: {
     (Ecu.eps, 0x730, None): [
       b'K070-3210X-C-00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
@@ -162,6 +172,7 @@ FW_VERSIONS = {
       b'PYFM-21PS1-D\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
   },
+
   CAR.MAZDA_3: {
     (Ecu.eps, 0x730, None): [
       b'BHN1-3210X-J-00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
@@ -197,6 +208,7 @@ FW_VERSIONS = {
       b'PYKE-21PS1-B\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
   },
+
   CAR.MAZDA_6: {
     (Ecu.eps, 0x730, None): [
       b'GBEF-3210X-B-00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
@@ -229,6 +241,7 @@ FW_VERSIONS = {
       b'PYH7-21PS1-B\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
   },
+
   CAR.MAZDA_CX9_2021: {
     (Ecu.eps, 0x730, None): [
       b'TC3M-3210X-A-00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
